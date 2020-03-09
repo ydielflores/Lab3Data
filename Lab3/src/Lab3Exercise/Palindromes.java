@@ -1,12 +1,41 @@
 package Lab3Exercise;
 
+import java.util.Scanner;
+
 import Queues.DoublyLinkedQueue;
 import Stacks.LinkedListStack;
 
 public class Palindromes {
 
+	public static void scan() {
+		
+		String s;
+		
+		System.out.println("Input the string you which to verify or press enter to end: ");
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		s = sc.nextLine();
+		
+		if(s.equals("")) {
+			System.exit(0);
+		}
+		
+		printConfirmedPalindrome(s);
+		scan();
+	}
+	
+	public static void printConfirmedPalindrome(String s) {
+		if(isPalindrome(s)) {
+			System.out.println("Palindrome");
+		}else {
+			System.out.println("Not a Palindrome");
+		}
+	}
+	
 	public static boolean isPalindrome(String s) {
-		s = s.toLowerCase().trim();
+		s = s.toLowerCase().replaceAll("[^a-zA-Z]","");
+
 		DoublyLinkedQueue<Character> queue = new DoublyLinkedQueue<>();
 		LinkedListStack<Character> stack = new LinkedListStack<>();
 
@@ -14,6 +43,7 @@ public class Palindromes {
 			queue.enqueue(s.charAt(i));
 			stack.push(s.charAt(i));
 		}
+
 		return isPalindromeHelper(queue, stack);
 	}
 
@@ -27,16 +57,7 @@ public class Palindromes {
 		return false;
 	}
 
-
 	public static void main(String[] args) {
-		String s = "hola";
-		System.out.println(isPalindrome(s));
-		s = "civic";
-		System.out.println(isPalindrome(s));
-		s = "race car";
-		System.out.println(isPalindrome(s));
-		
-		s = "Step on no pets";
-		System.out.println(isPalindrome(s));
+		scan();
 	}
 }
