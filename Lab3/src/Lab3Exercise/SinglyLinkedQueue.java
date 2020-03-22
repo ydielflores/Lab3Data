@@ -123,11 +123,15 @@ public class SinglyLinkedQueue<E> implements Queue<E> {
 	@Override
 	public E[] toArray() {
 		// TODO Auto-generated method stub
-		
 		E[] theArray = (E[]) new Object[size()];
-		int i = 0;
-		while(!isEmpty()) {
-			theArray[i++] = dequeue();
+		if(currentSize>0) {
+			
+			int i = 0;
+			Node transfer = header;
+			while(i<currentSize) {
+				theArray[i++] = transfer.getValue();
+				transfer = transfer.getNext();
+			}
 		}
 		return theArray;
 	}

@@ -31,10 +31,11 @@ public class SinglyLinkedQueueTester {
 		test.enqueue("s");
 		
 		
-		String [] isArrayNow = (String[]) test.toArray();
+		Object [] isArrayNow = test.toArray();
+		
 		System.out.println("Test toArray() :");
 		for(int i = 0; i < isArrayNow.length; i++) {
-			System.out.println(isArrayNow[i]);
+			System.out.println((String) isArrayNow[i]);
 		}
 		
 		printTest(test);
