@@ -39,6 +39,9 @@ public class SinglyLinkedQueueTester {
 		}
 		
 		printTest(test);
+		
+		System.out.println("Test enqueue() a null object :");
+		test.enqueue(null);
 	}
 	
 	public static void printTest(SinglyLinkedQueue<String> test) {
