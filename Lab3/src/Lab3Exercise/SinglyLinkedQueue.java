@@ -47,10 +47,11 @@ public class SinglyLinkedQueue<E> implements Queue<E> {
 	}
 
 	int currentSize;
-	Node header;
-
+	Node header,tail;
+	
 	public SinglyLinkedQueue () {
-		header = new Node();
+		header = new Node(null, tail);
+		tail = new Node();
 		currentSize = 0;
 	}
 
@@ -65,10 +66,12 @@ public class SinglyLinkedQueue<E> implements Queue<E> {
 		}
 		if(size() == 0) {
 			header.setValue(e);
+			tail.setValue(e);
 		}else {
 			for(curNode = header; curNode.getNext() != null; curNode = curNode.getNext());
 			newNode = new Node(e);
 			curNode.setNext(newNode);
+			tail = newNode;
 		}
 		currentSize++;
 	}
@@ -82,6 +85,7 @@ public class SinglyLinkedQueue<E> implements Queue<E> {
 		E value = header.getValue();
 		if(size() == 1) {
 			header.clear();
+			tail.clear();
 		}else {
 			header = header.getNext();
 		}

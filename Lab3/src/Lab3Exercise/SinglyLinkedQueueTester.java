@@ -13,6 +13,7 @@ public class SinglyLinkedQueueTester {
 		test.enqueue("d");
 		test.enqueue("o");
 		test.enqueue("s");
+		
 		System.out.println("Size despues de saludos :" +test.size());
 		System.out.println("Test isEmpty() :" + test.isEmpty());
 		System.out.println("Test front() :" + test.front());
