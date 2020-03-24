@@ -82,6 +82,7 @@ public class StackSort {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public static boolean validate(String s) {
 
 		try {

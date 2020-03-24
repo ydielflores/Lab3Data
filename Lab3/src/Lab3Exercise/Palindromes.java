@@ -13,11 +13,11 @@ public class Palindromes {
 		
 		System.out.println("Input the string you which to verify or press enter to end: ");
 		
-		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		s = sc.nextLine();
 		
 		if(s.equals("")) {
+			sc.close();
 			System.exit(0);
 		}
 		
